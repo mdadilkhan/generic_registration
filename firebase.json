@@ -1,0 +1,49 @@
+// {
+//     "hosting": {
+//       "public": "dist",
+//       "ignore": [
+//         "firebase.json",
+//         "**/.*",
+//         "**/node_modules/**"
+//       ]
+//     }
+//   }
+  
+
+
+{
+  "hosting": {
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "https://cmp-host.web.app"
+          }
+        ]
+      },
+      {
+        "source": "**/*.js",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/javascript"
+          }
+        ]
+      }
+    ]
+  }
+}
