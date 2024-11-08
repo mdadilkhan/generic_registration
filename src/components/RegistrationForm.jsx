@@ -226,7 +226,7 @@ const RegisterInterestForm = () => {
         {topics.map((topic, index) => (
           <div
             key={index}
-            className="mx-auto p-4 rounded-lg flex flex-col w-[90%] h-[14rem] items-start justify-between shadow-md bg-[#FCFAFF]"
+            className="mx-auto p-4 rounded-lg flex flex-col w-[90%] h-[100%] min-h-[14rem] items-start justify-between shadow-md bg-[#FCFAFF]"
           >
             <div className="flex justify-around gap-[12px]">
               <img
