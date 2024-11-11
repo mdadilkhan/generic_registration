@@ -84,7 +84,7 @@ const topics = [
             Unlock real-world experience and professional growth with our comprehensive internships and training programs at Daffodils. Our programs are designed to equip psychology students with hands-on skills through supervised casework, role-playing, and guided clinical practice. The aim is to gain insight into client management, conduct real consultation sessions, and explore tailored therapy approaches—all while receiving mentorship from industry experts.
         </p>
         <p className="text-[1.6rem] font-nunito">
-          To know more : <a href="https://main.d1jmslcnot05.amplifyapp.com" target="_blank" className="text-blue-500">Click Here</a>
+          To know more : <a href="https://main.d1jsmelccnst05.amplifyapp.com" target="_blank" className="text-blue-500">Click Here</a>
         </p>
       </>
     ),
@@ -144,7 +144,7 @@ const RegisterInterestForm = () => {
     mentorship: 0,
     counselling_therapy: 0,
   });
-
+  
   const [selectedTopic, setSelectedTopic] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -153,7 +153,6 @@ const RegisterInterestForm = () => {
     undergraduate: ["1st year", "2nd year", "3rd year", "4th year"],
     postgraduate: ["1st year", "2nd year"],
   };
-  const universityOptions = ["JMI", "JNU", "AMU"];
 
   // Handle input changes
   const handleChange = (e) => {
@@ -171,7 +170,7 @@ const RegisterInterestForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/genricIntrestedRegistration", formData);
+      const response = await axios.post("https://8m0spbpe5m.execute-api.ap-south-1.amazonaws.com/dev/genricIntrestedRegistration", formData);
   
       if (response.status === 200) {
         toast.success(`Your Interest Submitted Successfully`, {
@@ -213,6 +212,7 @@ const RegisterInterestForm = () => {
     setIsModalOpen(false);
     setSelectedTopic(null);
   };
+console.log(formData);
 
   return (
     <>
@@ -356,18 +356,15 @@ const RegisterInterestForm = () => {
 
           <div className="w-[90%] mx-auto">
             <label className=" block text-[1.6rem] font-nunito font-bold mb-2 ">College/University Name*</label>
-            <select
+            <input
+              type="text"
               name="college_university_name"
               value={formData.college_university_name}
               onChange={handleChange}
-              className="w-full  h-[5rem]   p-2  text-[1.4rem]   border  rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-500"
+              placeholder="University name"
+              className="w-full h-[5rem] p-2 text-[1.4rem] border rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-500"
               required
-            >
-              <option value="" disabled>Select University</option>
-              {universityOptions.map((university) => (
-                <option key={university} value={university}>{university}</option>
-              ))}
-            </select>
+            />
           </div>
           {/* Submit */}
           <button
